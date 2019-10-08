@@ -1,6 +1,8 @@
 package com.triadsoft.utils;
 
 import com.triadsoft.dto.SiteNames;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,35 +18,25 @@ import java.util.regex.Pattern;
  * @created 10/8/2019 9:37 AM
  */
 public class SiteFileLoader {
+    private Logger logger = LoggerFactory.getLogger(SiteFileLoader.class);
     private static String FILENAME = "sites-file.csv";
-    private static String regex = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
-
-    public InputStream loadFile() {
-        InputStream inputStream = getClass()
-                .getClassLoader().getResourceAsStream(FILENAME);
-        return inputStream;
-    }
-
-    public InputStream loadFile(String filename) {
-        InputStream inputStream = getClass()
-                .getClassLoader().getResourceAsStream(filename);
-        return inputStream;
-    }
+    private static String VALID_URL = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
 
     public List<SiteNames> getSites() throws IOException {
         return getSites(FILENAME);
     }
 
     public List<SiteNames> getSites(String filename) throws IOException {
-        InputStream is = loadFile(filename);
-        InputStreamReader reader = new InputStreamReader(is);
+        InputStream inputStream = getClass()
+                .getClassLoader().getResourceAsStream(filename);
+        InputStreamReader reader = new InputStreamReader(inputStream);
         BufferedReader br = new BufferedReader(reader);
         String line;
         List<SiteNames> sites = new LinkedList<SiteNames>();
-        Pattern p = Pattern.compile(regex);
+        Pattern p = Pattern.compile(VALID_URL);
         Matcher m;
         while ((line = br.readLine()) != null) {
-            System.out.println(line);
+            logger.debug(line);
             m = p.matcher(line);
             if(m.matches()) {
                 sites.add(new SiteNames(line));

@@ -34,7 +34,7 @@ public class FileLoadTest {
     }
 
     @Test
-    public void testFileLoad_invalidUrl() {
+    public void testFileLoad_haInvalidUrl() {
         SiteFileLoader loader = new SiteFileLoader();
         try {
             List<SiteNames> names = loader.getSites("sites-file-invalids.csv");
