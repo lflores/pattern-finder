@@ -1,4 +1,4 @@
-package com.triadsoft;
+package com.triadsoft.dto;
 
 /**
  * @author triad (flores.leonardo@gmail.com)

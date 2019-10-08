@@ -1,6 +1,6 @@
-package com.triadsoft;
+package com.triadsoft.utils;
 
-import com.sun.prism.shader.FillEllipse_LinearGradient_PAD_AlphaTest_Loader;
+import com.triadsoft.dto.SiteNames;
 
 import java.io.BufferedReader;
 import java.io.IOException;
