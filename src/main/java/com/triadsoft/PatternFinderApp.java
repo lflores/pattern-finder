@@ -4,7 +4,7 @@ package com.triadsoft;
  * Hello world!
  *
  */
-public class App 
+public class PatternFinderApp
 {
     public static void main( String[] args )
     {
