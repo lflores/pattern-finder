@@ -86,11 +86,6 @@ public class PatternCatcherTest {
     private String getHtmlContent(String filename) {
         StringBuilder contentBuilder = new StringBuilder();
         try {
-//            InputStream inputStream = getClass()
-//                    .getClassLoader().getResourceAsStream(filename);
-//            InputStreamReader reader = new InputStreamReader(inputStream);
-//            BufferedReader br = new BufferedReader(reader);
-//
             ClassLoader classLoader = this.getClass().getClassLoader();
             File file = new File(classLoader.getResource(filename).getFile());
             InputStream inputStream = new FileInputStream(file);

@@ -26,7 +26,7 @@ public class FileLoadTest {
             List<SiteNames> names = loader.getSites();
             assertNotNull(names);
             assertTrue(!names.isEmpty());
-            assertTrue(names.size() == 21);
+            assertTrue(names.size() == 22);
 
         } catch (IOException e) {
             e.printStackTrace();
