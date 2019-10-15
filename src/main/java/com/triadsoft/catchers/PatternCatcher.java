@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -22,12 +23,20 @@ public abstract class PatternCatcher {
 
     public List<String> getMatches(String content) {
         List<String> matches = new ArrayList<String>();
-        Pattern p = Pattern.compile(catcherRegex,Pattern.MULTILINE);
-        Matcher m = p.matcher(content);
-        while (m.find()) {
-            if (m.groupCount() == 1) {
-                matches.add(m.group(1));
+        if (Objects.isNull(content)
+                || content.length() == 0) {
+            return matches;
+        }
+        try {
+            Pattern p = Pattern.compile(catcherRegex, Pattern.MULTILINE);
+            Matcher m = p.matcher(content);
+            while (m.find()) {
+                if (m.groupCount() == 1) {
+                    matches.add(m.group(1));
+                }
             }
+        }catch(IllegalStateException ex){
+            logger.info("Error occur parsing data");
         }
         return matches;
     }
