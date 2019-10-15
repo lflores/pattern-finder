@@ -4,8 +4,8 @@ import com.triadsoft.catchers.HashtagCatcher;
 import com.triadsoft.catchers.TitleCatcher;
 import com.triadsoft.catchers.TwitterCatcher;
 import com.triadsoft.dto.SiteNames;
-import com.triadsoft.readers.URLReader;
-import com.triadsoft.utils.SiteFileLoader;
+import com.triadsoft.loaders.URLReader;
+import com.triadsoft.loaders.SiteFileLoader;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,28 +34,6 @@ public class FutureTests {
                 .thenAccept(s -> System.out.println("Computation returned: " + s));
 
         future.get();
-    }
-
-    @Test
-    public void test_MyTaskList_as_CompletableFuture() {
-        List<MyTask> tasks = IntStream.range(0, 10)
-                .mapToObj(i -> new MyTask(1))
-                .collect(Collectors.toList());
-
-        long start = System.nanoTime();
-        List<CompletableFuture<Integer>> futures =
-                tasks.stream()
-                        .map(t -> CompletableFuture.supplyAsync(() -> t.calculate()))
-                        .collect(Collectors.toList());
-
-        List<Integer> result =
-                futures.stream()
-                        .map(CompletableFuture::join)
-                        .collect(Collectors.toList());
-        long duration = (System.nanoTime() - start) / 1_000_000;
-        System.out.printf("Processed %d tasks in %d millis\n", tasks.size(), duration);
-        System.out.println(result);
-
     }
 
     @Test

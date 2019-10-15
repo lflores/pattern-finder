@@ -1,7 +1,7 @@
 package com.triadsoft;
 
 import com.triadsoft.dto.SiteNames;
-import com.triadsoft.utils.SiteFileLoader;
+import com.triadsoft.loaders.SiteFileLoader;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;

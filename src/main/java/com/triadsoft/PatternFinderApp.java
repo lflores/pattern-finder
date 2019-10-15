@@ -4,8 +4,8 @@ import com.triadsoft.catchers.HashtagCatcher;
 import com.triadsoft.catchers.TitleCatcher;
 import com.triadsoft.catchers.TwitterCatcher;
 import com.triadsoft.dto.SiteNames;
-import com.triadsoft.readers.URLReader;
-import com.triadsoft.utils.SiteFileLoader;
+import com.triadsoft.loaders.URLReader;
+import com.triadsoft.loaders.SiteFileLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

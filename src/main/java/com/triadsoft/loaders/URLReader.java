@@ -1,4 +1,4 @@
-package com.triadsoft.readers;
+package com.triadsoft.loaders;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
