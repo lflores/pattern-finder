@@ -1,8 +1,8 @@
 package com.triadsoft;
 
 /**
- * @author triad (leonardo.flores@overactive.com)
- * @created 10/15/2019 2:20 PM
+ * @author triad (flores.leonardo@gmail.com)
+ * @created 10/10/2019 2:20 PM
  */
 public class MyTask {
     private final int duration;

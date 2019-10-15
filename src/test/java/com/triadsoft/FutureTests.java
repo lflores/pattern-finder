@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * @author triad (leonardo.flores@overactive.com)
+ * @author triad (flores.leonardo@gmail.com)
  * @created 10/15/2019 1:24 PM
  */
 public class FutureTests {
